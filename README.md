@@ -1,12 +1,14 @@
 # Complex
+
 Arduino library for Complex math
 
 ## Description
 
+This library defines the complex datatype and all the common math functions for it.
 
-## Interface
+These functions include basic = - \* / but also power and gonio functions.
 
-See Complex.h for all functions implemented...
+See Complex.h for all functions implemented.
 
 
 ## Note
