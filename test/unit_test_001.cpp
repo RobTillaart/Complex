@@ -24,7 +24,7 @@
 #include "Arduino.h"
 #include "Complex.h"
 
-#define assertEqualFloat(arg1, arg2, arg3)  assertOp("assertEqual", "expected", fabs(arg1 - arg2), compareMoreOrEqual, "==", "actual", arg3)
+#define assertEqualFloat(arg1, arg2, arg3)  assertOp("assertEqualFloat", "expected", fabs(arg1 - arg2), compareMoreOrEqual, ">=", "actual", arg3)
 
 unittest_setup()
 {
