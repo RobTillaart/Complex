@@ -24,6 +24,7 @@
 #include "Arduino.h"
 #include "Complex.h"
 
+#define AssertEqualFloat(arg1, arg2, arg3)  assertOp("assertEqual", "expected", fabs(arg1 - arg2), compareMoreOrEqual, "==", "actual", arg3)
 
 unittest_setup()
 {
@@ -126,7 +127,7 @@ unittest(test_basic_functions)
 
   float ph = a.phase();
   
-  #define AssertEqualFloat(arg1, arg2, arg3)  assertOp("assertEqual","expected", fabs(arg1 - arg2),compareEqual,"==","actual",arg3)
+  
   
   assertEqualFloat(-0.244979, ph, 0.0001);
   
