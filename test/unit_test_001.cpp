@@ -75,12 +75,12 @@ unittest(test_basic_math)
   assertEqual(-3.5, c2.imag());
 
   Complex c3 = a * b;
-  assertEqual(-10,  c3.real());
-  assertEqual(4.0,  c3.imag());
+  assertEqual(32.5,  c3.real());
+  assertEqual(2.5,  c3.imag());
 
   Complex c4 = a / b;
-  assertEqual(-5.0, c4.real());
-  assertEqual(-5.0, c4.imag());
+  assertEqual(2.75, c4.real());
+  assertEqual(-1.75, c4.imag());
   
   Complex c5 = -a;
   assertEqual(-10, c4.real());
