@@ -1,11 +1,12 @@
 //
 //    FILE: Complex.cpp
 //  AUTHOR: Rob Tillaart
-// VERSION: 0.2.1
+// VERSION: 0.2.2
 // PURPOSE: Arduino library for Complex math
 //     URL: https://github.com/RobTillaart/Complex
 //          http://arduino.cc/playground/Main/ComplexMath
 //
+// 0.2.2    2020-12-16   add arduino-ci + unit test (starter)
 // 0.2.1    2020-06-05   fix library.json
 // 0.2.0    2020-03-29   #pragma once, own repo
 // 0.1.12 - 2018-04-02 - fix issue #33 double -> float

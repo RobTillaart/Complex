@@ -83,8 +83,8 @@ unittest(test_basic_math)
   assertEqual(-1.75, c4.imag());
   
   Complex c5 = -a;
-  assertEqual(-10, c4.real());
-  assertEqual(2.5, c4.imag());
+  assertEqual(-10, c5.real());
+  assertEqual(2.5, c5.imag());
 }
 
 unittest_main()
