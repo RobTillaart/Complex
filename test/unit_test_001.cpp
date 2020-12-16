@@ -27,8 +27,11 @@
 
 #define assertEqualFloat(arg1, arg2, arg3)  assertOp("assertEqualFloat", "expected", fabs(arg1 - arg2), compareLessOrEqual, "<=", "actual", arg3)
 
-#define assertEqualINF(arg)  ( isinf(arg) )
-#define assertEqualNAN(arg)  ( isnan(arg) )
+//#define assertEqualINF(arg)  ( isinf(arg) )
+//#define assertEqualNAN(arg)  ( isnan(arg) )
+
+#define assertEqualINF(arg)  assertEqual(INFINITY, arg)
+#define assertEqualNAN(arg)  assertNotEqual(arg, arg)
 
 
 unittest_setup()
@@ -41,14 +44,14 @@ unittest_teardown()
 
 unittest(test_new_operator)
 {
-  fprintf(stderr, "############");
+  fprintf(stderr, "############\n");
   
   assertEqualINF(tan(PI/2));
   assertEqualINF(1/0);
   assertEqualNAN(tan(PI/2));
   assertEqualNAN(1/0);
   
-  fprintf(stderr, "############");
+  fprintf(stderr, "############\n");
 }
 
 
