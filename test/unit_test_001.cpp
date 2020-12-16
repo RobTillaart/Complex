@@ -57,12 +57,15 @@ unittest(test_constructor)
   // one is a default available var.
   assertEqual(1.0, one.real());
   assertEqual(0.0, one.imag());
+
+  // polar notation setter.
+  c1.polar(5, PI/4);
+  assertEqual(5, cq.modulus());
+  assertEqual(PI/4, one.phase());
 }
 
 unittest(test_basic_math)
 {
-  fprintf(stderr, COMPLEX_LIB_VERSION);
-
   Complex a(10.0, -2.5);
   Complex b(3, 1);
   
@@ -105,8 +108,6 @@ unittest(test_basic_math)
 
 unittest(test_basic_functions)
 {
-  fprintf(stderr, COMPLEX_LIB_VERSION);
-
   Complex a;
   assertEqual(0, a.real());
   assertEqual(0, a.imag());
@@ -145,8 +146,6 @@ unittest(test_basic_functions)
 
 unittest(test_power_functions)
 {
-  fprintf(stderr, COMPLEX_LIB_VERSION);
-
   Complex a(3, 4);
   Complex b;
 
@@ -175,6 +174,36 @@ unittest(test_power_functions)
   assertEqual(0, b.imag());
 
   b = a.c_logn(a);
+  assertEqual(0, b.real());
+  assertEqual(0, b.imag());
+}
+
+unittest(test_gonio_functions_I)
+{
+  Complex a(3, 4);
+  Complex b;
+
+  b = a.c_sin();
+  assertEqual(0, b.real());
+  assertEqual(0, b.imag());
+
+  b = a.c_cos();
+  assertEqual(0, b.real());
+  assertEqual(0, b.imag());
+
+  b = a.c_tan();
+  assertEqual(0, b.real());
+  assertEqual(0, b.imag());
+
+  b = a.c_asin();
+  assertEqual(0, b.real());
+  assertEqual(0, b.imag());
+
+  b = a.c_acos();
+  assertEqual(0, b.real());
+  assertEqual(0, b.imag());
+
+  b = a.c_atan(a);
   assertEqual(0, b.real());
   assertEqual(0, b.imag());
 }
