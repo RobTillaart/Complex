@@ -85,7 +85,97 @@ unittest(test_basic_math)
   Complex c5 = -a;
   assertEqual(-10, c5.real());
   assertEqual(2.5, c5.imag());
+
+  a += b;
+  assertEqual(13, a.real());
+  assertEqual(-1.5, a.imag());
+
+  a -= b;
+  assertEqual(10,  a.real());
+  assertEqual(-2.5, a.imag());
+
+  a *= b;
+  assertEqual(32.5,  a.real());
+  assertEqual(2.5,  a.imag());
+
+  a /= b;
+  assertEqual(10, a.real());
+  assertEqual(-2.5, a.imag());
 }
+
+unittest(test_basic_functions)
+{
+  fprintf(stderr, COMPLEX_LIB_VERSION);
+
+  Complex a;
+  assertEqual(0, a.real());
+  assertEqual(0, a.imag());
+
+  a.set(5, 34);
+  assertEqual(5, a.real());
+  assertEqual(34, a.imag());
+
+  a.setReal(10);
+  assertEqual(10, a.real());
+  assertEqual(34, a.imag());
+
+  a.setImag(-2.5);
+  assertEqual(10, a.real());
+  assertEqual(-2.5, a.imag());
+
+  float ph = a.phase();
+  assertEqual(0, ph);
+  
+  float mod = a.modulus();
+  assertEqual(0, mod);
+
+  Complex conj = a.conjugate();
+  assertEqual(0, conj.real());
+  assertEqual(0, conj.imag());
+
+  Complex reci = a.reciprocal();
+  assertEqual(0, reci.real());
+  assertEqual(0, reci.imag());
+}
+
+
+unittest(test_power_functions)
+{
+  fprintf(stderr, COMPLEX_LIB_VERSION);
+
+  Complex a(3, 4);
+  Complex b;
+
+  b = a.c_sqrt();
+  assertEqual(0, b.real());
+  assertEqual(0, b.imag());
+
+  b = a.c_sqr();
+  assertEqual(0, b.real());
+  assertEqual(0, b.imag());
+
+  b = a.c_exp();
+  assertEqual(0, b.real());
+  assertEqual(0, b.imag());
+
+  b = a.c_log();
+  assertEqual(0, b.real());
+  assertEqual(0, b.imag());
+
+  b = a.c_log10();
+  assertEqual(0, b.real());
+  assertEqual(0, b.imag());
+
+  b = a.c_pow(a);
+  assertEqual(0, b.real());
+  assertEqual(0, b.imag());
+
+  b = a.c_logn(a);
+  assertEqual(0, b.real());
+  assertEqual(0, b.imag());
+}
+
+
 
 unittest_main()
 
