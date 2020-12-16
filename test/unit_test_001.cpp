@@ -24,7 +24,7 @@
 #include "Arduino.h"
 #include "Complex.h"
 
-#define assertEqualFloat(arg1, arg2, arg3)  assertOp("assertEqualFloat", "expected", fabs(arg1 - arg2), compareMoreOrEqual, ">=", "actual", arg3)
+#define assertEqualFloat(arg1, arg2, arg3)  assertOp("assertEqualFloat", "expected", fabs(arg1 - arg2), compareLessOrEqual, "<=", "actual", arg3)
 
 unittest_setup()
 {
@@ -61,8 +61,8 @@ unittest(test_constructor)
 
   // polar notation setter.
   c1.polar(5, PI/4);
-  assertEqual(5, c1.modulus());
-  assertEqual(PI/4, c1.phase());
+  assertEqualFloat(5, c1.modulus(), 0.0001);
+  assertEqualFloat(PI/4, c1.phase(), 0.0001);
 }
 
 unittest(test_basic_math)
@@ -126,25 +126,22 @@ unittest(test_basic_functions)
   assertEqual(-2.5, a.imag());
 
   float ph = a.phase();
-  
-  
-  
   assertEqualFloat(-0.244979, ph, 0.0001);
   
   float mod = a.modulus();
-  // assertEqual(10.3078, mod);
+  assertEqualFloat(10.3078, mod, 0.0001);
 
   Complex conj = a.conjugate();
   assertEqual(10, conj.real());
   assertEqual(2.5, conj.imag());
 
   Complex reci = a.reciprocal();
-  // assertEqual(0.0941176, reci.real());
-  // assertEqual(0.0235294, reci.imag());
+  assertEqualFloat(0.0941176, reci.real(), 0.0001);
+  assertEqualFloat(0.0235294, reci.imag(), 0.0001);
   
   reci *= a;
-  // assertEqual(1, reci.real());
-  assertEqual(0, reci.imag());
+  assertEqualFloat(1.0, reci.real(), 0.0001);
+  assertEqualFloat(0, reci.imag(), 0.0001);
 }
 
 
@@ -162,20 +159,20 @@ unittest(test_power_functions)
   assertEqual(24, b.imag());
 
   b = a.c_exp();
-  assertEqual(-13.1288, b.real());
-  assertEqual(-15.2008, b.imag());
+  assertEqualFloat(-13.1288, b.real(), 0.0001);
+  assertEqualFloat(-15.2008, b.imag(), 0.0001);
 
   b = a.c_log();
-  assertEqual(1.60944, b.real());
-  assertEqual(0.927295, b.imag());
+  assertEqualFloat(1.60944, b.real(), 0.0001);
+  assertEqualFloat(0.927295, b.imag(), 0.0001);
 
   b = a.c_log10();
-  assertEqual(0.69897, b.real());
-  assertEqual(0.402719, b.imag());
+  assertEqualFloat(0.69897, b.real(), 0.0001);
+  assertEqualFloat(0.402719, b.imag(), 0.0001);
 
   b = a.c_pow(a);
-  assertEqual(-2.99799, b.real());
-  assertEqual(0.623786, b.imag());
+  assertEqualFloat(-2.99799, b.real(), 0.0001);
+  assertEqualFloat(0.623786, b.imag(), 0.0001);
 
   b = a.c_logn(a);
   assertEqual(1, b.real());
@@ -188,28 +185,28 @@ unittest(test_gonio_functions_I)
   Complex b;
 
   b = a.c_sin();
-  assertEqual(0, b.real());
-  assertEqual(0, b.imag());
+  assertEqualFloat(3.85374, b.real(), 0.0001);
+  assertEqualFloat(-27.0168, b.imag(), 0.0001);
 
   b = a.c_cos();
-  assertEqual(0, b.real());
-  assertEqual(0, b.imag());
+  assertEqualFloat(-27.0349, b.real(), 0.0001);
+  assertEqualFloat(-3.85115, b.imag(), 0.0001);
 
   b = a.c_tan();
-  assertEqual(0, b.real());
-  assertEqual(0, b.imag());
+  assertEqualFloat(-0.000187318, b.real(), 0.0001);
+  assertEqualFloat(0.999356, b.imag(), 0.0001);
 
   b = a.c_asin();
-  assertEqual(0, b.real());
-  assertEqual(0, b.imag());
+  assertEqualFloat(0.633984, b.real(), 0.0001);
+  assertEqualFloat(2.30551, b.imag(), 0.0001);
 
   b = a.c_acos();
-  assertEqual(0, b.real());
-  assertEqual(0, b.imag());
+  assertEqualFloat(0.936813, b.real(), 0.0001);
+  assertEqualFloat(-2.30551, b.imag(), 0.0001);
 
   b = a.c_atan();
-  assertEqual(0, b.real());
-  assertEqual(0, b.imag());
+  assertEqualFloat(1.44831, b.real(), 0.0001);
+  assertEqualFloat(0.158997, b.imag(), 0.0001);
 }
 
 
