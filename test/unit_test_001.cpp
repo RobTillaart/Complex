@@ -38,7 +38,7 @@ unittest_teardown()
 {
 }
 
-uinttest(test_new_operator)
+unittest(test_new_operator)
 {
   fprintf(stderr, "############");
   
