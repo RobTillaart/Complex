@@ -60,8 +60,8 @@ unittest(test_constructor)
 
   // polar notation setter.
   c1.polar(5, PI/4);
-  assertEqual(5, cq.modulus());
-  assertEqual(PI/4, one.phase());
+  assertEqual(5, c1.modulus());
+  assertEqual(PI/4, c1.phase());
 }
 
 unittest(test_basic_math)
