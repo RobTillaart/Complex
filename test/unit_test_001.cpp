@@ -206,7 +206,7 @@ unittest(test_gonio_functions_I)
   assertEqual(0, b.real());
   assertEqual(0, b.imag());
 
-  b = a.c_atan(a);
+  b = a.c_atan();
   assertEqual(0, b.real());
   assertEqual(0, b.imag());
 }
