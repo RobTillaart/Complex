@@ -30,14 +30,6 @@
 #define assertEqualINF(arg)  assertOp("assertEqualINF", "expected", INFINITY, compareEqual, "==", "actual", arg)
 #define assertEqualNAN(arg)  assertOp("assertEqualNAN", "expected", true, compareEqual, "==", "actual", isnan(arg))
 
-// WORKS
-// #define assertEqualINF(arg)  assertEqual(INFINITY, arg)
-
-
-//#define assertEqualINF(arg)  ( isinf(arg) )
-//#define assertEqualNAN(arg)  ( isnan(arg) )
-// #define assertEqualNAN(arg)  assertTrue(isnan(arg))
-
 
 unittest_setup()
 {
@@ -49,14 +41,13 @@ unittest_teardown()
 
 unittest(test_new_operator)
 {
-  fprintf(stderr, "############\n");
-  
   assertEqualINF(exp(800));
   assertEqualINF(0.0/0.0);
+  assertEqualINF(42);
+  
   assertEqualNAN(INFINITY - INFINITY);
   assertEqualNAN(0.0/0.0);
-  
-  fprintf(stderr, "############\n");
+  assertEqualNAN(42);
 }
 
 
