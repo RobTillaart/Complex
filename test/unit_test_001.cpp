@@ -124,18 +124,22 @@ unittest(test_basic_functions)
   assertEqual(-2.5, a.imag());
 
   float ph = a.phase();
-  assertEqual(0, ph);
+  assertEqual(-0.244979, ph);
   
   float mod = a.modulus();
-  assertEqual(0, mod);
+  assertEqual(10.3078, mod);
 
   Complex conj = a.conjugate();
-  assertEqual(0, conj.real());
-  assertEqual(0, conj.imag());
+  assertEqual(10, conj.real());
+  assertEqual(2.5, conj.imag());
 
   Complex reci = a.reciprocal();
-  assertEqual(0, reci.real());
-  assertEqual(0, reci.imag());
+  assertEqual(0.0941176, reci.real());
+  assertEqual(0.0235294, reci.imag());
+  
+  reci *= a;
+  assertEqual(1, reci.real());
+  assertEqual(1, reci.imag());
 }
 
 
