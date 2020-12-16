@@ -46,8 +46,8 @@ unittest(test_new_operator)
 {
   fprintf(stderr, "############\n");
   
-  assertEqualINF(tan(PI/2));
-  assertEqualINF(1/0);
+  assertEqualINF(exp(800));
+  assertEqualINF(0.0/0.0);
   assertEqualNAN(tan(PI/2));
   assertEqualNAN(1/0);
   
