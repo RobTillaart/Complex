@@ -125,7 +125,10 @@ unittest(test_basic_functions)
   assertEqual(-2.5, a.imag());
 
   float ph = a.phase();
-  // assertEqual(-0.244979, ph);
+  
+  #define AssertEqualFloat(arg1, arg2, arg3)  assertOp("assertEqual","expected", fabs(arg1 - arg2),compareEqual,"==","actual",arg3)
+  
+  assertEqualFloat(-0.244979, ph, 0.0001);
   
   float mod = a.modulus();
   // assertEqual(10.3078, mod);
