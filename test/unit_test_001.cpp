@@ -18,6 +18,7 @@
 // assertTrue(actual)
 // assertFalse(actual)
 // assertNull(actual)
+// assertNotNull(actual)
 
 #include <ArduinoUnitTests.h>
 
@@ -26,8 +27,8 @@
 
 #define assertEqualFloat(arg1, arg2, arg3)  assertOp("assertEqualFloat", "expected", fabs(arg1 - arg2), compareLessOrEqual, "<=", "actual", arg3)
 
-#define assertEqualINF(arg)  ( assertEqual(INF, arg) || assertEqual(-INF, arg) )
-#define assertEqualNAN(arg) assertEqual(NAN, arg)
+#define assertEqualINF(arg)  ( isinf(arg) )
+#define assertEqualNAN(arg)  ( isnan(arg) )
 
 
 unittest_setup()
