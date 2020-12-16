@@ -27,7 +27,7 @@ public:
 
     size_t printTo(Print& p) const;
 
-    void polar(const float, const float);
+    void polar(const float modulus, const float phase);
     float phase()       { return atan2(im, re); };
     float modulus()     { return hypot(re, im); };
     // conjugate is the number mirrored in x-axis
