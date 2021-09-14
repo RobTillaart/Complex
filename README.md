@@ -17,7 +17,7 @@ This library defines the complex data type and all the common mathematical funct
 
 These functions include basic = "+ - \* /" and also power and goniometric functions.
 
-The library implement the **Printable** interface so one can directly print the values
+The library implements the **Printable** interface so one can directly print the complex values
 in any stream e.g. Serial.
 
 
