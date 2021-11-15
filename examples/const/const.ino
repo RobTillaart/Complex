@@ -25,7 +25,9 @@ void setup()
   Serial.println(c);
 
   const Complex d(1,1);
-  d *= b;
+  //  The next line is a warning on AVR 
+  //  But an error on other platforms (which is correct)
+  //  d *= b;
   Serial.println(d);
 
   Serial.println("\ndone...");
