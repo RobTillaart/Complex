@@ -2,7 +2,7 @@
 //    FILE: complex.ino
 //  AUTHOR: Rob Tillaart
 //    DATE: 2013-09-23
-// PURPOSE: example complex array
+// PURPOSE: demo complex
 //     URL: https://github.com/RobTillaart/Complex
 //
 //  Serial.print(Complex) supported since 0.1.05
